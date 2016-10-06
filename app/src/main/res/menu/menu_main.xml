@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.kingdom.aasgard.mmmtp1.MainActivity">
+    <item android:title="RàZ du formulaire"
+        android:id="@+id/miResetForm"
+        android:visible="true"
+        android:enabled="true"
+        android:checkable="false" />
+    <item android:title="Ajout téléphone"
+        android:id="@+id/miAddPhoneNumber" />
+    <item android:title="WikiSearch"
+        android:id="@+id/miWikiSearch" />
+</menu>
