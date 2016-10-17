@@ -72,6 +72,13 @@ public class MainActivity extends AppCompatActivity {
 
                 return true;
 
+            case R.id.miListeClients:
+
+                Intent openList = new Intent(getBaseContext(), Main3Activity.class);
+                startActivity(openList);
+
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }

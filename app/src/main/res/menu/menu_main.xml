@@ -2,6 +2,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.kingdom.aasgard.mmmtp1.MainActivity">
+    <item android:title="Liste des clients"
+        android:id="@+id/miListeClients" />
     <item android:title="RàZ du formulaire"
         android:id="@+id/miResetForm"
         android:visible="true"
