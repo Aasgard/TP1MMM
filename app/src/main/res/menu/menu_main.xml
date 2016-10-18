@@ -2,15 +2,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.kingdom.aasgard.mmmtp1.MainActivity">
-    <item android:title="Liste des clients"
-        android:id="@+id/miListeClients" />
-    <item android:title="RàZ du formulaire"
+    <item
+        android:id="@+id/miListeClients"
+        android:title="Liste des clients" />
+    <item
         android:id="@+id/miResetForm"
-        android:visible="true"
+        android:checkable="false"
         android:enabled="true"
-        android:checkable="false" />
-    <item android:title="Ajout téléphone"
-        android:id="@+id/miAddPhoneNumber" />
-    <item android:title="WikiSearch"
-        android:id="@+id/miWikiSearch" />
+        android:title="RàZ du formulaire"
+        android:visible="true" />
+    <item
+        android:id="@+id/miAddPhoneNumber"
+        android:title="Ajout téléphone" />
+    <item
+        android:id="@+id/miWikiSearch"
+        android:title="WikiSearch" />
 </menu>

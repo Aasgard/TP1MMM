@@ -1,6 +1,8 @@
 package com.kingdom.aasgard.mmmtp1;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -25,30 +27,34 @@ public class Main3Activity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        maListViewPerso = (ListView) findViewById(R.id.lvData);
+        Uri allClients = LibraryContentProvider.CONTENT_URI;
+        Cursor c = getContentResolver().query(allClients, null, null, null, null);
 
+        maListViewPerso = (ListView) findViewById(R.id.lvData);
         listItem = new ArrayList<HashMap<String, String>>();
 
-        HashMap<String, String> item;
-        item = new HashMap<String, String>();
-        item.put("nom", "Lancien");
-        item.put("prenom","François-Régis");
-        item.put("villeNaissance","Vannes");
-        item.put("dateNaissance","11/09/1991");
+        if (c.moveToFirst()) {
+            do {
 
-        listItem.add(item);
+                HashMap<String, String> item;
+                item = new HashMap<String, String>();
+                /*item.put("nom", c.getString(c.getColumnIndex(LibraryContentProvider.NOM)));
+                item.put("prenom", c.getString(c.getColumnIndex(LibraryContentProvider.PRENOM)));
+                item.put("villeNaissance", c.getString(c.getColumnIndex(LibraryContentProvider.DATENAISSANCE)));
+                item.put("dateNaissance", c.getString(c.getColumnIndex(LibraryContentProvider.VILLENAISSANCE)));*/
+                item.put("nom", "Lancien");
+                item.put("prenom", "François-Régis");
+                item.put("villeNaissance", "11/09/1991");
+                item.put("dateNaissance", "Vannes");
 
-        item = new HashMap<String, String>();
-        item.put("nom", "Jouvance - Le Bail");
-        item.put("prenom","Alexia");
-        item.put("villeNaissance","Vannes");
-        item.put("dateNaissance","12/06/1991");
+                listItem.add(item);
 
-        listItem.add(item);
+            } while (c.moveToNext());
+        }
 
         //Création d'un SimpleAdapter qui se chargera de mettre les items présent dans notre list (listItem) dans la vue affichageitem
-        mListAdapter = new SimpleAdapter (this.getBaseContext(), listItem, R.layout.item,
-                new String[] {"nom", "prenom", "villeNaissance", "dateNaissance"}, new int[] {R.id.nom, R.id.prenom, R.id.villeNaissance, R.id.dateNaissance});
+        mListAdapter = new SimpleAdapter(this.getBaseContext(), listItem, R.layout.item,
+                new String[]{"nom", "prenom", "villeNaissance", "dateNaissance"}, new int[]{R.id.nom, R.id.prenom, R.id.villeNaissance, R.id.dateNaissance});
 
         //On attribue à notre listView l'adapter que l'on vient de créer
         maListViewPerso.setAdapter(mListAdapter);

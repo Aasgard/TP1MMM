@@ -5,16 +5,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Layout;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +24,12 @@ public class MainActivity extends AppCompatActivity {
         EditText numeroTelephoneField = (EditText) findViewById(R.id.edNumeroTelephone);
         nomField.requestFocus();
         numeroTelephoneField.setVisibility(View.GONE);
+
+        /*Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyyy");
+        System.out.println(format.format(calendar.getTime()));
+
+        Toast.makeText(getApplicationContext(), format.format(calendar.getTime()), Toast.LENGTH_SHORT).show();*/
     }
 
     @Override
@@ -87,7 +89,8 @@ public class MainActivity extends AppCompatActivity {
     public void validateForm(View view) {
 
         EditText nomField = (EditText) findViewById(R.id.etNom);
-        String nomContent = nomField.getText().toString();
+        String nomContent = ((EditText) findViewById(R.id.etNom)).getText().toString();
+        /*String nomContent = nomField.getText().toString();*/
 
         EditText prenomField = (EditText) findViewById(R.id.etPrenom);
         String prenomContent = prenomField.getText().toString();
